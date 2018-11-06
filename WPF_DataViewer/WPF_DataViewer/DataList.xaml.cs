@@ -23,30 +23,57 @@ namespace WPF_DataViewer
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<Character> _characters;
-
+        private List<Character> _characters;
+        private IDataService _dataService;
         public MainWindow()
         {
             InitializeComponent();
-        }
 
-        private void dg_CharacterGrid_Loaded(object sender, RoutedEventArgs e)
-        {
+            //set data source
+            //
             try
             {
-                // read data
-                //
-                IDataService dataService = new MongoDataService();
-                _characters = dataService.ReadAll();
+                _dataService = new MongoDataService();
+                _characters = _dataService.ReadAll();
 
-                // bind data
-                //
                 dg_CharacterGrid.ItemsSource = _characters;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(),"Error");
+                MessageBox.Show(ex.ToString(), "Error");
             }
+
+            //set combo boxes
+            //
+            foreach (var col in dg_CharacterGrid.Columns)
+            {
+                cb_Filter.Items.Add(col.Header);
+                cb_Sort.Items.Add(col.Header);
+            }
+
+
+        }
+
+        private void Exit(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
+
+        private void Save(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                _dataService.WriteAll(_characters);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
+        }
+
+        private void Help(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

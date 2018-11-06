@@ -7,21 +7,21 @@
         mc:Ignorable="d"
         Title="Soul Calibur Characters" Height="400" Width="600">
     <Grid>
-        <DataGrid x:Name="dg_CharacterGrid" HorizontalAlignment="Left" Height="349" Margin="10,10,0,0" VerticalAlignment="Top" Width="450" Loaded="dg_CharacterGrid_Loaded"/>
+        <DataGrid x:Name="dg_CharacterGrid" HorizontalAlignment="Left" Height="349" Margin="10,10,0,0" VerticalAlignment="Top" Width="450"/>
         <StackPanel HorizontalAlignment="Left" Height="349" Margin="465,10,0,0" VerticalAlignment="Top" Width="117">
-            <Button Content="View" Height="35" Margin="0,0,0,5"/>
-            <Button Content="Delete" Height="35" Margin="0,0,0,5"/>
-            <Label Content="Search"/>
-            <TextBox Height="25" TextWrapping="Wrap" Text="TextBox" Margin="0,0,0,5"/>
-            <Label Content="Sort" Margin="0"/>
-            <ComboBox Height="25"/>
-            <RadioButton Content="Ascending" IsChecked="" Width="auto"/>
-            <RadioButton Content="Descending" Width="auto" Margin="0,0,0,5"/>
-            <Label Content="Filter"/>
-            <ComboBox Margin="0,0,0,5" Height="25"/>
-            <Button Content="Save" Margin="0,0,0,5"/>
-            <Button Content="Help" Margin="0,0,0,5"/>
-            <Button Content="Exit"/>
+            <Button x:Name="butt_View" Content="View" Height="35" Margin="0,0,0,5"/>
+            <Button x:Name="butt_Delete" Content="Delete" Height="35" Margin="0,0,0,5"/>
+            <Label x:Name="lbl_Search" Content="Search"/>
+            <TextBox x:Name="tb_Search" Height="25" TextWrapping="Wrap" Text="TextBox" Margin="0,0,0,5"/>
+            <Label x:Name="lbl_Sort" Content="Sort" Margin="0"/>
+            <ComboBox x:Name="cb_Sort" Height="25" Margin="0,0,0,1" SelectedIndex="0"/>
+            <RadioButton x:Name="rb_Asc" Content="Ascending" IsChecked="True" Width="auto"/>
+            <RadioButton x:Name="rb_Desc" Content="Descending" Width="auto" Margin="0,0,0,5"/>
+            <Label x:Name="lbl_Filter" Content="Filter"/>
+            <ComboBox x:Name="cb_Filter" Margin="0,0,0,5" Height="25" SelectedIndex="0"/>
+            <Button x:Name="butt_Save" Content="Save" Margin="0,0,0,5" Click="Save"/>
+            <Button x:Name="butt_Help" Content="Help" Margin="0,0,0,5" Click="Help"/>
+            <Button x:Name="butt_Exit" Content="Exit" Click="Exit"/>
         </StackPanel>
 
     </Grid>
