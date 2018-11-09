@@ -23,5 +23,10 @@ namespace WPF_DataViewer
         {
             InitializeComponent();
         }
+
+        private void butt_Back_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

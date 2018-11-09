@@ -7,16 +7,16 @@
         mc:Ignorable="d"
         Title="Soul Calibur Characters" Height="400" Width="600">
     <Grid>
-        <DataGrid x:Name="dg_CharacterGrid" HorizontalAlignment="Left" Height="349" Margin="10,10,0,0" VerticalAlignment="Top" Width="450"/>
+        <DataGrid x:Name="dg_CharacterGrid"  RowHeaderWidth="20" RowHeight="30" SelectionUnit="CellOrRowHeader" HorizontalAlignment="Left" Height="349" Margin="10,10,0,0" VerticalAlignment="Center" Width="450" CellEditEnding="CellChanged"/>
         <StackPanel HorizontalAlignment="Left" Height="349" Margin="465,10,0,0" VerticalAlignment="Top" Width="117">
             <Button x:Name="butt_View" Content="View" Height="35" Margin="0,0,0,5" Click="OpenDetails"/>
             <Button x:Name="butt_Delete" Content="Delete" Height="35" Click="DeleteRecord"/>
             <Label x:Name="lbl_Search" Content="Search"/>
-            <TextBox x:Name="tb_Search" Height="25" TextWrapping="Wrap"/>
+            <TextBox x:Name="tb_Search" Height="25" TextWrapping="Wrap" TextChanged="SearchValue" KeyDown="EnterSearch"/>
             <Label x:Name="lbl_Sort" Content="Sort" Margin="0"/>
-            <ComboBox x:Name="cb_Sort" Height="25" Margin="0,0,0,5" SelectedIndex="0"/>
-            <RadioButton x:Name="rb_Asc" Content="Ascending" IsChecked="True" Width="auto"/>
-            <RadioButton x:Name="rb_Desc" Content="Descending" Width="auto"/>
+            <ComboBox x:Name="cb_Sort" Height="25" Margin="0,0,0,5" SelectedIndex="0" SelectionChanged="ChangeSortOrder"/>
+            <RadioButton x:Name="rb_Asc" Content="Ascending" IsChecked="True" Width="auto" Checked="DirectionChanged"/>
+            <RadioButton x:Name="rb_Desc" Content="Descending" Width="auto" Checked="DirectionChanged"/>
             <Label x:Name="lbl_Filter" Content="Filter"/>
             <ComboBox x:Name="cb_Filter" Margin="0,0,0,16" Height="25" SelectedIndex="0" SelectionChanged="SetFilter"/>
             <Button x:Name="butt_Save" Content="Save" Margin="0,0,0,5" Click="Save"/>

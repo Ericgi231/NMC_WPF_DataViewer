@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_DataViewer"
         mc:Ignorable="d"
-        Title="Details" Height="300" Width="300">
+        Title="Details" Height="274.451" Width="382.418">
     <Grid>
-        
+        <Image x:Name="img_Character" HorizontalAlignment="Left" Height="223" Margin="10,10,0,0" VerticalAlignment="Top" Width="166" Stretch="Fill"/>
+        <Button Content="Back" HorizontalAlignment="Left" Margin="271,188,0,0" VerticalAlignment="Top" Width="93" Height="45" Click="Button_Click"/>
+        <TextBox x:Name="tb_Info" HorizontalAlignment="Left" Height="173" Margin="181,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="183"/>
+
     </Grid>
 </Window>

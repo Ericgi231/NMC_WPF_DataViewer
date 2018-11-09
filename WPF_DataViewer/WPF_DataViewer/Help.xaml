@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_DataViewer"
         mc:Ignorable="d"
-        Title="Help" Height="300" Width="300">
+        Title="Help" Height="306.594" Width="360.989">
     <Grid>
-        
+        <TextBox Grid.Row="0" TextWrapping="Wrap" Height="213" Text="This application links up to a MongoDB database containing character information.&#xD;&#xA;&#xD;&#xA;Manipulate the data grid on the left to alter the data within the database.&#xD;&#xA;&#xD;&#xA;Use the controls on the right to filter, search, or sort data how you desire, this does not effect the database.&#xD;&#xA;&#xD;&#xA;Make sure to press save after making changes" Margin="10,10,10,0" VerticalAlignment="Top"/>
+        <Button x:Name="butt_Back" Content="Back" Margin="10,228,0,0" HorizontalAlignment="Left" Width="112" Height="40" VerticalAlignment="Top" Click="butt_Back_Click"/>
     </Grid>
 </Window>
