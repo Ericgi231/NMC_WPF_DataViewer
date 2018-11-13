@@ -10,6 +10,7 @@ using MongoDB.Bson;
 using WPF_DataViewer.Models;
 using WPF_DataViewer.DAL;
 using WPF_DataViewer.Data;
+using System.Collections.ObjectModel;
 
 namespace WPF_DataViewer.DAL
 {
@@ -21,17 +22,19 @@ namespace WPF_DataViewer.DAL
         /// read the mongoDb collection and load a list of character objects
         /// </summary>
         /// <returns>list of characters</returns>
-        public List<Character> ReadAll()
+        public ObservableCollection<Character> ReadAll()
         {
-            List<Character> characters = new List<Character>();
+            ObservableCollection<Character> characters = new ObservableCollection<Character>();
 
             try
             {
                 var client = new MongoClient(_connectionString);
                 IMongoDatabase database = client.GetDatabase("cit255");
                 IMongoCollection<Character> characterList = database.GetCollection<Character>("soulcal_characters");
-
-                characters = characterList.Find(Builders<Character>.Filter.Empty).ToList();
+                foreach (var item in characterList.Find(Builders<Character>.Filter.Empty).ToList())
+                {
+                    characters.Add(item);
+                }
             }
             catch (Exception)
             {
@@ -45,7 +48,7 @@ namespace WPF_DataViewer.DAL
         /// write the current list of characters to the mongoDb collection
         /// </summary>
         /// <param name="characters">list of characters</param>
-        public void WriteAll(List<Character> characters)
+        public void WriteAll(ObservableCollection<Character> characters)
         {
             try
             {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace WPF_DataViewer
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<Character> _characters;
+        private ObservableCollection<Character> _characters;
         private IDataService _dataService;
 
         public static bool IsWindowOpen<T>(string name = "") where T : Window
@@ -137,14 +138,17 @@ namespace WPF_DataViewer
         {
             try
             {
-                _characters.RemoveAt(dg_CharacterGrid.SelectedIndex);
+                int index = dg_CharacterGrid.SelectedIndex;
+                
+                _characters.RemoveAt(index);
                 dg_CharacterGrid.Items.Refresh();
                 ChangesMade = true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Please select a row to delete.","Error");
+                MessageBox.Show($"Please select a row to delete.\n{ex}","Error");
             }
+            
         }
 
         private void SetFilter(object sender, SelectionChangedEventArgs e)
